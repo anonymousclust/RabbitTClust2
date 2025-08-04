@@ -27,7 +27,7 @@ or
 
 git clone https://github.com/anonymousclust/RabbitTClust2.git -b fastmpi
 
-cd RabbitTClust
+cd RabbitTClust2
 ./install.sh
 ```
 ## Usage
