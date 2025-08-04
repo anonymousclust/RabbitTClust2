@@ -11,11 +11,12 @@
 * cmake v.3.0 or later
 * c++14
 * [zlib](https://zlib.net/)
+* icc
 
 #### Compile and install
 ```bash
-git clone https://github.com/anonymousclust/RabbitTClust2.git
-cd RabbitTClust
+git clone https://github.com/anonymousclust/RabbitTClust2.git -b fastmpi
+cd RabbitTClust2
 ./install.sh
 ```
 ## Usage
