@@ -1,0 +1,74 @@
+#set -x
+#
+##make rabbitSketch library
+#cd RabbitSketch &&
+#mkdir -p build && cd build &&
+#cmake -DCXXAPI=ON -DCMAKE_INSTALL_PREFIX=. .. &&
+#make -j8 && make install &&
+#cd ../../ &&
+#
+##make rabbitFX library
+#cd RabbitFX && 
+#mkdir -p build && cd build &&
+#cmake -DCMAKE_INSTALL_PREFIX=. .. &&
+#make -j8 && make install && 
+#cd ../../ &&
+#
+##compile the clust-greedy
+#mkdir -p build && cd build &&
+#cmake -DUSE_RABBITFX=ON -DUSE_GREEDY=ON .. && 
+#make -j8 && make install &&
+#cd ../ &&
+#
+##compile the clust-mst
+#cd build &&
+#cmake -DUSE_RABBITFX=ON -DUSE_GREEDY=OFF .. &&
+#make -j8 && make install &&
+#cd ../ 
+
+set -x
+
+cd RabbitSketch
+rm -rf build && mkdir build && cd build
+
+cmake .. \
+  -DCXXAPI=ON \
+  -DCMAKE_INSTALL_PREFIX=. \
+  -DCMAKE_C_COMPILER=icc \
+  -DCMAKE_CXX_COMPILER=icpc
+
+make -j8 && make install
+cd ../../
+
+cd RabbitFX
+rm -rf build && mkdir build && cd build
+
+cmake .. \
+  -DCMAKE_INSTALL_PREFIX=. \
+  -DCMAKE_C_COMPILER=icc \
+  -DCMAKE_CXX_COMPILER=icpc
+
+make -j8 && make install
+cd ../../
+
+rm -rf build && mkdir build && cd build
+
+cmake .. \
+  -DUSE_RABBITFX=ON \
+  -DUSE_GREEDY=OFF \
+  -DCMAKE_C_COMPILER=icc \
+  -DCMAKE_CXX_COMPILER=icpc
+
+make -j8 && make install
+cd ../
+
+cd build
+
+cmake .. \
+  -DUSE_RABBITFX=ON \
+  -DUSE_GREEDY=OFF \
+  -DCMAKE_C_COMPILER=icc \
+  -DCMAKE_CXX_COMPILER=icpc
+
+make -j8 && make install
+cd ../
