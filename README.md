@@ -9,6 +9,9 @@
 Ensure that your machine supports at least AVX2 instructions.
 
 
+Usage: MPI     use the MPI-accelerated version (only available in fastmpi branch)
+
+
 ### Install from source code
 #### Dependancy
 * cmake v.3.0 or later
@@ -17,7 +20,13 @@ Ensure that your machine supports at least AVX2 instructions.
 
 #### Compile and install
 ```bash
+
 git clone https://github.com/anonymousclust/RabbitTClust2.git
+
+or
+
+git clone https://github.com/anonymousclust/RabbitTClust2.git -b fastmpi
+
 cd RabbitTClust
 ./install.sh
 ```
